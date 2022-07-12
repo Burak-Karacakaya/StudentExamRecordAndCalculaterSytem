@@ -54,9 +54,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dbNotKayitDataSet = new StudentExamRecordAndCalculaterSytem.DbNotKayitDataSet();
-            this.lessonBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lessonTableAdapter = new StudentExamRecordAndCalculaterSytem.DbNotKayitDataSetTableAdapters.LessonTableAdapter();
             this.studentIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,13 +63,16 @@
             this.studentExam3DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.examAvarageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.lessonBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dbNotKayitDataSet = new StudentExamRecordAndCalculaterSytem.DbNotKayitDataSet();
+            this.lessonTableAdapter = new StudentExamRecordAndCalculaterSytem.DbNotKayitDataSetTableAdapters.LessonTableAdapter();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbNotKayitDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lessonBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbNotKayitDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -273,6 +273,7 @@
             this.PassStudent.Size = new System.Drawing.Size(28, 18);
             this.PassStudent.TabIndex = 8;
             this.PassStudent.Text = "00";
+            //this.PassStudent.Click += new System.EventHandler(this.PassStudent_Click);
             // 
             // SuccessStudent
             // 
@@ -283,6 +284,7 @@
             this.SuccessStudent.Size = new System.Drawing.Size(28, 18);
             this.SuccessStudent.TabIndex = 7;
             this.SuccessStudent.Text = "00";
+            //this.SuccessStudent.Click += new System.EventHandler(this.SuccessStudent_Click);
             // 
             // LblAvarage
             // 
@@ -293,6 +295,7 @@
             this.LblAvarage.Size = new System.Drawing.Size(28, 18);
             this.LblAvarage.TabIndex = 6;
             this.LblAvarage.Text = "00";
+            //this.LblAvarage.Click += new System.EventHandler(this.LblAvarage_Click);
             // 
             // label7
             // 
@@ -356,21 +359,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(748, 450);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // dbNotKayitDataSet
-            // 
-            this.dbNotKayitDataSet.DataSetName = "DbNotKayitDataSet";
-            this.dbNotKayitDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // lessonBindingSource
-            // 
-            this.lessonBindingSource.DataMember = "Lesson";
-            this.lessonBindingSource.DataSource = this.dbNotKayitDataSet;
-            // 
-            // lessonTableAdapter
-            // 
-            this.lessonTableAdapter.ClearBeforeFill = true;
             // 
             // studentIdDataGridViewTextBoxColumn
             // 
@@ -436,6 +424,20 @@
             this.statusDataGridViewCheckBoxColumn.Name = "statusDataGridViewCheckBoxColumn";
             this.statusDataGridViewCheckBoxColumn.Width = 59;
             // 
+            // lessonBindingSource
+            // 
+            this.lessonBindingSource.DataMember = "Lesson";
+            this.lessonBindingSource.DataSource = this.dbNotKayitDataSet;
+            // 
+            // dbNotKayitDataSet
+            // 
+            this.dbNotKayitDataSet.DataSetName = "DbNotKayitDataSet";
+            this.dbNotKayitDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // lessonTableAdapter
+            // 
+            this.lessonTableAdapter.ClearBeforeFill = true;
+            // 
             // StudentExamEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -459,8 +461,8 @@
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dbNotKayitDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lessonBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbNotKayitDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }

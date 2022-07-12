@@ -32,11 +32,7 @@ namespace StudentExamRecordAndCalculaterSytem
             this.lessonTableAdapter.Fill(this.dbNotKayitDataSet.Lesson);
 
         }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+       
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -55,6 +51,7 @@ namespace StudentExamRecordAndCalculaterSytem
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            
             int select = dataGridView1.SelectedCells[0].RowIndex;
 
             LblStudentNumberEntryFromTeacher.Text = dataGridView1.Rows[select].Cells[1].Value.ToString();
@@ -64,13 +61,7 @@ namespace StudentExamRecordAndCalculaterSytem
 
             Exam1EntryFromTeacher.Text = dataGridView1.Rows[select].Cells[4].Value.ToString();
             Exam2EntryFromTeacher.Text = dataGridView1.Rows[select].Cells[5].Value.ToString();
-            Exam3EntryFromTeacher.Text = dataGridView1.Rows[select].Cells[6].Value.ToString();
-
-            
-
-            //SuccessStudent.Text = dbNotKayitDataSet.Lesson.Count(x => x.Status == true).ToString();
-            //PassStudent.Text = dbNotKayitDataSet.Lesson.Count(x => x.Status == false).ToString();          
-            //LblAvarage.Text = dbNotKayitDataSet.Lesson.Sum(y => y.ExamAvarage / (Convert.ToInt32(SuccessStudent.Text) + Convert.ToInt32(PassStudent.Text))).ToString();
+            Exam3EntryFromTeacher.Text = dataGridView1.Rows[select].Cells[6].Value.ToString();            
 
         }
 
@@ -85,7 +76,7 @@ namespace StudentExamRecordAndCalculaterSytem
             avarage = (e1 + e2 + e3) / 3;
             LblAvarage.Text = avarage.ToString();
 
-            if (avarage >= 60)
+            if (avarage >= 55)
             {
                 status = "True";
             }
@@ -104,10 +95,17 @@ namespace StudentExamRecordAndCalculaterSytem
             sqlCommand.Parameters.AddWithValue("@p5", status);
             sqlCommand.Parameters.AddWithValue("@p6", LblStudentNumberEntryFromTeacher.Text);
             sqlCommand.ExecuteNonQuery();
+            
+            
+            LblAvarage.Text = this.dbNotKayitDataSet.Lesson.Sum(y => y.ExamAvarage / dataGridView1.RowCount).ToString("00.00");
+            SuccessStudent.Text = this.dbNotKayitDataSet.Lesson.Count(x => x.Status == true).ToString();
+            PassStudent.Text = this.dbNotKayitDataSet.Lesson.Count(x => x.Status == false).ToString();
             connection.Close();
             MessageBox.Show("Student Exam point Updated.");
             this.lessonTableAdapter.Fill(this.dbNotKayitDataSet.Lesson);
 
-        }
+        }            
+            
+        
     }
 }
