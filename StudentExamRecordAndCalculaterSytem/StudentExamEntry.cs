@@ -71,7 +71,7 @@ namespace StudentExamRecordAndCalculaterSytem
             string status;
             e1 = Convert.ToDouble(Exam1EntryFromTeacher.Text);
             e2 = Convert.ToDouble(Exam2EntryFromTeacher.Text);
-            e3 = Convert.ToDouble(Exam2EntryFromTeacher.Text);
+            e3 = Convert.ToDouble(Exam3EntryFromTeacher.Text);
 
             avarage = (e1 + e2 + e3) / 3;
             LblAvarage.Text = avarage.ToString();
@@ -84,8 +84,9 @@ namespace StudentExamRecordAndCalculaterSytem
             {
                 status = "False";
             }
-                
 
+            
+            
             connection.Open();
             SqlCommand sqlCommand = new SqlCommand("Update Lesson set StudentExam1=@p1, StudentExam2=@p2, StudentExam3=@p3, ExamAvarage=@p4, Status=@p5 where StudentNumber=@p6", connection);
             sqlCommand.Parameters.AddWithValue("@p1", Exam1EntryFromTeacher.Text);
